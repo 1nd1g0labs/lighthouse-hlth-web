@@ -3,6 +3,7 @@ import { Section } from '@/components/section';
 import { KpiCard } from '@/components/kpi-card';
 import { CarbonIcon, FootprintIcon, CapitalIcon } from '@/components/icons';
 import { Clock, CheckSquare, DollarSign, Users } from 'lucide-react';
+import { getAllPosts } from '@/lib/blog';
 
 const kpis = [
   { value: '92%', label: 'Anesthetic gas reduction', detail: '$84K saved' },
@@ -158,11 +159,7 @@ export default function Home() {
       <Section className="bg-canvas">
         <h2 className="mb-8 text-center text-h5 font-bold text-neutral-900">Latest Insights</h2>
         <div className="grid gap-4 md:grid-cols-3">
-          {[
-            { slug: 'climate-and-health', title: 'Climate and Health', excerpt: 'The impact of climate on healthcare systems' },
-            { slug: 'cutting-emissions', title: 'Cutting Emissions in Healthcare', excerpt: 'Methods to reduce emissions while enhancing care quality' },
-            { slug: 'data-integration', title: 'Merging Environmental and Clinical Data', excerpt: 'Integrating environmental insights with healthcare data' },
-          ].map((post) => (
+          {getAllPosts().slice(0, 3).map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`} className="group overflow-hidden rounded-lg border border-border-subtle bg-white transition-shadow hover:shadow-card">
               <div className="h-32 bg-neutral-200" />
               <div className="p-4">
