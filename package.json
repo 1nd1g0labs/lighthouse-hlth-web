@@ -1,109 +1,14 @@
 {
-  "name": "@1nd1g0labs/lighthouse-hlth-ui",
-  "version": "1.3.1",
-  "description": "Lighthouse Health Design System - A comprehensive branded UI component library for healthcare sustainability applications",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/1nd1g0labs/lighthouse-hlth-ui.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "restricted"
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./dist/styles.css": "./dist/styles.css",
-    "./styles.css": "./dist/styles.css",
-    "./tokens": {
-      "types": "./dist/tokens/index.d.ts",
-      "import": "./dist/tokens/index.mjs",
-      "require": "./dist/tokens/index.js"
-    },
-    "./tokens/tokens.css": "./dist/tokens/tokens.css",
-    "./tokens/framer-tokens.json": "./dist/tokens/framer-tokens.json",
-    "./tokens/email-tokens.css": "./dist/tokens/email-tokens.css",
-    "./framer": {
-      "types": "./dist/framer/index.d.ts",
-      "import": "./dist/framer/index.mjs",
-      "require": "./dist/framer/index.js"
-    }
-  },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE",
-    "NOTICE"
+  "name": "lighthouse-hlth",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
   ],
   "scripts": {
-    "dev": "tsup --watch",
-    "build": "tsup && npm run generate:tokens",
-    "build:lib": "tsup && npm run generate:tokens",
-    "generate:tokens": "ts-node --project scripts/tsconfig.json scripts/generate-css.ts && ts-node --project scripts/tsconfig.json scripts/generate-framer-tokens.ts && ts-node --project scripts/tsconfig.json scripts/generate-email-css.ts",
-    "sync:framer": "ts-node --project scripts/tsconfig.json scripts/sync-framer-tokens.ts",
-    "type-check": "tsc --noEmit",
-    "lint": "eslint . --ext .ts,.tsx",
-    "format": "prettier --write \"src/**/*.{ts,tsx,json,css}\"",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build && touch ./storybook-static/.nojekyll",
-    "prepublishOnly": "npm run build:lib"
-  },
-  "keywords": [
-    "react",
-    "nextjs",
-    "framer",
-    "design-system",
-    "ui-library",
-    "healthcare",
-    "sustainability",
-    "lighthouse-health"
-  ],
-  "author": "Indigo Labs LLC",
-  "license": "SEE LICENSE IN LICENSE",
-  "private": false,
-  "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  },
-  "dependencies": {
-    "@tanstack/react-virtual": "^3.13.13",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.0",
-    "framer-motion": "^11.0.0",
-    "lucide-react": "^0.344.0",
-    "recharts": "^3.6.0"
-  },
-  "devDependencies": {
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/addon-interactions": "^8.6.14",
-    "@storybook/addon-links": "^8.6.14",
-    "@storybook/blocks": "^8.6.14",
-    "@storybook/react": "^8.6.14",
-    "@storybook/react-vite": "^8.6.14",
-    "@types/node": "^20.11.0",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
-    "@typescript-eslint/eslint-plugin": "^6.19.0",
-    "@typescript-eslint/parser": "^6.19.0",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^8.56.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "postcss": "^8.5.6",
-    "prettier": "^3.2.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "storybook": "^8.6.14",
-    "tailwindcss": "^3.4.18",
-    "ts-node": "^10.9.2",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.3",
-    "vite": "^5.4.21"
+    "dev": "npm run dev --workspace=apps/web",
+    "build": "npm run build --workspace=apps/web",
+    "build:ui": "npm run build --workspace=packages/ui",
+    "storybook": "npm run storybook --workspace=packages/ui"
   }
 }

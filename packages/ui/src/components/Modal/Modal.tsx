@@ -85,7 +85,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                   role="dialog"
                   aria-modal="true"
                   className={cn(
-                    'relative w-full rounded-[0.75rem] bg-white shadow-[0_25px_50px_-12px_rgb(0_0_0_/_0.25)]',
+                    'relative w-full rounded-[0.75rem] bg-white dark:bg-gray-900 shadow-[0_25px_50px_-12px_rgb(0_0_0_/_0.25)]',
                     'p-4 md:p-6',
                     'max-h-[calc(100vh-1rem)] md:max-h-[calc(100vh-2rem)] overflow-y-auto',
                     sizeClasses[size],
@@ -96,7 +96,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                   {showCloseButton && onClose && (
                     <button
                       onClick={onClose}
-                      className="absolute right-3 top-3 md:right-4 md:top-4 rounded-[0.375rem] p-1.5 md:p-1 text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors touch-manipulation z-10"
+                      className="absolute right-3 top-3 md:right-4 md:top-4 rounded-[0.375rem] p-1.5 md:p-1 text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-gray-800 transition-colors touch-manipulation z-10"
                       aria-label="Close modal"
                     >
                       <X className="h-5 w-5" />

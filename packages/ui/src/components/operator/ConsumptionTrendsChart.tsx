@@ -383,8 +383,8 @@ export const ConsumptionTrendsChart: React.FC<ConsumptionTrendsChartProps> = ({
                 fontWeight: 600,
                 marginBottom: '8px',
               }}
-              formatter={(value: number | undefined) => [
-                value !== undefined ? `${value.toLocaleString()} kg CO2e` : 'N/A',
+              formatter={(value) => [
+                typeof value === 'number' ? `${value.toLocaleString()} kg CO2e` : 'N/A',
                 undefined,
               ]}
             />
