@@ -15,6 +15,9 @@ const config: Config = {
       colors: {
         navy: '#0a2540',
       },
+      fontFamily: {
+        sans: ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      },
     },
   },
 };

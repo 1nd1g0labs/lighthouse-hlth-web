@@ -85,10 +85,10 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="mt-10 flex gap-6" role="list" aria-label="Key performance metrics">
+            <div className="mt-10 flex flex-wrap items-start gap-x-6 gap-y-4" role="list" aria-label="Key performance metrics">
               {heroStats.map((stat, i) => (
                 <div key={stat.value} className="flex items-start gap-6" role="listitem" aria-label={stat.aria}>
-                  {i > 0 && <div className="h-10 w-px bg-gray-200" aria-hidden="true" />}
+                  {i > 0 && <div className="hidden h-10 w-px bg-gray-200 sm:block" aria-hidden="true" />}
                   <div>
                     <p className="text-lg font-extrabold text-navy sm:text-xl">{stat.value}</p>
                     <p className="text-[10px] font-medium text-gray-400 sm:text-xs">{stat.label}</p>
