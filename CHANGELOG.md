@@ -124,7 +124,7 @@ Production-ready components for healthcare sustainability operator workflows, de
 **Impact Level:** LOW - New component family, zero breaking changes
 
 **Compatibility:**
-- Framer site (lighthousehlth.com): ✅ Compatible (no changes to existing components)
+- lighthousehlth.com (Next.js): ✅ Compatible (no changes to existing components)
 - Dashboard apps: ✅ Compatible (additive-only changes)
 - Existing Storybook stories: ✅ Compatible (all still render)
 
@@ -380,7 +380,7 @@ This color palette follows GHG Protocol standards for healthcare sustainability 
 
 ### BREAKING CHANGES
 
-This is a major version release completing the Framer design system alignment. Several deprecated components and tokens have been removed.
+This is a major version release completing the design system alignment. Several deprecated components and tokens have been removed.
 
 #### 1. Button Component Replaced
 
@@ -388,10 +388,10 @@ This is a major version release completing the Framer design system alignment. S
 - Old `Button` component with variants: primary, secondary, accent, outline, ghost, destructive
 
 **ADDED:**
-- `Button` (renamed from Button2) with Framer-aligned variants:
+- `Button` (renamed from Button2) with design-system-aligned variants:
   - `green-left`, `green-right` (default), `white-left`, `white-right`, `white-static`
   - Animated arrow hover effect
-  - Pixel-perfect Framer match (nodeId: Jobckk162)
+  - Aligned with Lighthouse HLTH design system
 
 **Migration:**
 ```typescript
@@ -421,8 +421,8 @@ See [MIGRATION.md](./MIGRATION.md) for complete variant mapping.
 - `accentOld` color token (#FF8B4B)
 
 **USE INSTEAD:**
-- `colors.primary[500]` (#057C8B) - Framer-exact teal
-- `colors.accent[500]` (#FF833B) - Framer-exact orange
+- `colors.primary[500]` (#057C8B) - design system teal
+- `colors.accent[500]` (#FF833B) - design system orange
 
 **Migration:**
 ```typescript
@@ -437,13 +437,13 @@ const accent = colors.accent[500];     // #FF833B
 
 ### Added
 
-- **Complete Framer Design System Alignment**: All components now match the Framer marketing site exactly
-- **11 Production-Ready Components**: Framer-aligned components across 2 tiers
+- **Complete Design System Alignment**: All components now match the Lighthouse HLTH design system
+- **11 Production-Ready Components**: Design-system-aligned components across 2 tiers
   - **Tier 1 (4 components)**: Button, FormButton, Label, LinkButton
   - **Tier 2 (7 components)**: FAQButton, SocialIcon, Rating, Navlink, FooterLink, ContactLink, SectionTag
 - **Full WCAG 2.1 AA Accessibility Compliance**: 100% of components meet or exceed standards
 - **Comprehensive Storybook Documentation**: 90+ stories with interactive controls
-- **Framer-Exact Design Tokens**: Colors, typography, spacing directly from Framer
+- **Design Tokens**: Colors, typography, spacing from `tailwind.config.js`
 
 ### Changed
 
@@ -451,7 +451,7 @@ const accent = colors.accent[500];     // #FF833B
   - All Button2 references updated to Button
   - Component exports simplified
   - Storybook stories updated to Button namespace
-- **All Components Use Framer-Exact Design Tokens**: Consistent with marketing site
+- **All Components Use Design System Tokens**: Consistent with `tailwind.config.js`
 - **Removed Deprecation Warnings**: No longer needed in v1.0.0
 
 ### Removed
@@ -510,9 +510,9 @@ npx @1nd1g0labs/lighthouse-hlth-ui-codemod v0-to-v1 ./src
 - **SectionTag**: Section label badge (3 variants)
 
 **Design Tokens:**
-- **Colors**: Framer-exact primary (#057C8B), accent (#FF833B), neutrals
-- **Typography**: Framer /16 text style, Inter font family
-- **Spacing**: Framer-exact padding, gaps, border radius
+- **Colors**: Design system primary (#057C8B), accent (#FF833B), neutrals
+- **Typography**: 16px body text style, Inter font family
+- **Spacing**: Design system padding, gaps, border radius
 
 **Accessibility:**
 - 100% WCAG 2.1 Level AA compliant
@@ -551,8 +551,8 @@ Design system serves Catholic health systems in operational sustainability missi
 5. Deploy to production
 
 **Future Roadmap:**
-- **v1.1.0**: Additional Framer components (Hero, Footer, Navigation sections)
-- **v1.2.0**: Form components (Input, Select, Textarea with Framer alignment)
+- **v1.1.0**: Additional components (Hero, Footer, Navigation sections)
+- **v1.2.0**: Form components (Input, Select, Textarea with design system alignment)
 - **v2.0.0**: Dashboard components (Charts, Tables, Analytics cards)
 
 ---
@@ -563,14 +563,13 @@ Design system serves Catholic health systems in operational sustainability missi
 
 ## [0.5.0] - 2025-11-23
 
-### Added - Framer Design System Alignment (Tier 2 Components)
+### Added - Design System Alignment (Tier 2 Components)
 
-This release adds 7 new Tier 2 components that complete the Framer alignment for navigation, interactive elements, and feedback display.
+This release adds 7 new Tier 2 components that complete the design system alignment for navigation, interactive elements, and feedback display.
 
 #### New Components
 
 **FAQButton** - Accordion button for FAQ sections
-- Framer nodeId: `uYy4zA47k`
 - Active/inactive states with background color toggle
 - 16px Inter medium text, chevron icon rotation (180deg when active)
 - Background: `#057C8B` (primary-500) when active, transparent when inactive
@@ -579,7 +578,6 @@ This release adds 7 new Tier 2 components that complete the Framer alignment for
 - Use cases: FAQ pages, patient education, healthcare documentation
 
 **SocialIcon** - Social media icon buttons
-- Framer nodeId: `nxyfQcMau`
 - 6 platforms: Facebook, Twitter, LinkedIn, Instagram, YouTube, GitHub
 - 40px circular touch targets (fully rounded)
 - 20px Lucide icons
@@ -588,7 +586,6 @@ This release adds 7 new Tier 2 components that complete the Framer alignment for
 - Use cases: Footer, about pages, community engagement sections
 
 **Rating** - Star rating display (1-5 stars)
-- Framer nodeId: `WidH99kQU`
 - Displays 1-5 star ratings with customizable colors
 - Default: `#FF833B` (accent-500) for filled stars, gray-300 for empty
 - 20px Lucide Star icons with 2px gap
@@ -597,7 +594,6 @@ This release adds 7 new Tier 2 components that complete the Framer alignment for
 - Use cases: Service ratings, patient satisfaction, testimonials
 
 **Navlink** - Navigation link with active state
-- Framer nodeId: `o7u8VYGZ_`
 - 16px Inter medium text
 - Active state: primary-500 text with 2px bottom border
 - Default state: gray-700 text with hover to primary-500
@@ -605,14 +601,12 @@ This release adds 7 new Tier 2 components that complete the Framer alignment for
 - Use cases: Header navigation, dashboard menus, section navigation
 
 **FooterLink** - Footer section links
-- Framer nodeId: `A3i_k4Ana`
 - 14px Inter text
 - Two variants: default (gray-600) and light (gray-400 for dark backgrounds)
 - Subtle hover transition to primary-500 or white
 - Use cases: Site footer, legal links, resource lists
 
 **ContactLink** - Contact links with icons
-- Framer nodeId: `hLwN6bqq3`
 - 16px Inter text with 20px Lucide icons
 - Three icon types: email (Mail), phone (Phone), location (MapPin)
 - Icon color: primary-500, text color: gray-900
@@ -621,7 +615,6 @@ This release adds 7 new Tier 2 components that complete the Framer alignment for
 - Use cases: Contact pages, footer, support sections
 
 **SectionTag** - Section label badges
-- Framer nodeId: `Y70PDA6Rc`
 - 14px Inter medium text
 - Three variants:
   - primary: `bg-primary-500/10`, `text-primary-500`
@@ -685,18 +678,17 @@ All components achieve full WCAG 2.1 Level AA compliance:
 
 ## [0.4.0] - 2025-11-23
 
-### Added - Framer Design System Alignment (Phase 2)
+### Added - Design System Alignment (Phase 2)
 
-This release introduces 4 new Tier 1 components that perfectly match the Framer marketing site design, completing the Framer alignment initiative. All components are production-ready with full WCAG 2.1 AA accessibility compliance.
+This release introduces 4 new Tier 1 components aligned with the Lighthouse HLTH design system. All components are production-ready with full WCAG 2.1 AA accessibility compliance.
 
 #### New Components
 
 **FormButton** - Form submission button with comprehensive state management
 - 7 states: default, hover, loading, active, disabled, success, error
-- Framer nodeId: `u_ERU5JMM`
 - Background: `#057C8B` (primary-500) for default/success, `rgba(255, 34, 68, 0.15)` for error
-- Text: 18px Inter medium (Framer `/18` text style)
-- Border radius: `rounded-full` (1000px in Framer)
+- Text: 18px Inter medium
+- Border radius: `rounded-full` (1000px)
 - Loading state with animated spinner (Lucide `Loader2`)
 - Success state with checkmark icon (Lucide `Check`)
 - Error state with alert icon and custom error messages (Lucide `AlertCircle`)
@@ -704,19 +696,17 @@ This release introduces 4 new Tier 1 components that perfectly match the Framer 
 - Use cases: Patient registration, sustainability reporting, contact forms
 
 **Label** - Rating/review label with avatars and stars
-- Framer nodeId: `pJf7jULqM`
 - Displays 1-5 star ratings with customizable colors
 - Overlapping user avatars (32px circular, -20px margin stacking)
 - "+N" badge showing additional reviewer count (green background)
-- Star icons: 14px, `#FF833B` accent color (Framer exact)
-- Review text: 14px Inter (Framer `/14` text style)
+- Star icons: 14px, `#FF833B` accent color
+- Review text: 14px Inter
 - ARIA labels for screen reader accessibility
 - Use cases: Social proof, testimonials, service ratings, review displays
 
 **LinkButton** - Text link with animated arrow
-- Framer nodeId: `Y9sUo0Uzx`
 - 4 variants: `forward-black`, `forward-white`, `backward-black`, `backward-white`
-- Text: 16px Inter (Framer `/16` text style)
+- Text: 16px Inter
 - Arrow: 15px icon, rotated -45deg for forward, 135deg for backward
 - Gap animation: 7px default → 12px on hover
 - Two-arrow swap animation using Framer Motion
@@ -724,8 +714,7 @@ This release introduces 4 new Tier 1 components that perfectly match the Framer 
 - Semantic `<a>` tag with proper href attribute
 - Use cases: "Learn more" links, "Read full story", navigation, secondary CTAs
 
-**Button2** - Framer-aligned button with animated arrow hover
-- Framer nodeId: `Jobckk162`
+**Button2** - Design-system-aligned button with animated arrow hover
 - 5 variants:
   - `green-left`: Green background, arrow from left
   - `green-right`: Green background, arrow from right (default)
@@ -790,53 +779,53 @@ No breaking changes. This is an **additive release** with full backward compatib
 - **FormButton**: Use for form submissions requiring state feedback
 - **Label**: Use for social proof, reviews, ratings with avatars
 - **LinkButton**: Use for secondary CTAs, "Learn more" links, navigation
-- **Button2**: Use for primary CTAs matching Framer marketing site design
+- **Button2**: Use for primary CTAs matching the Lighthouse HLTH design system
 - **Button**: Use for general-purpose buttons in dashboard/app contexts
 
 ---
 
 ## [0.3.0] - 2025-11-22
 
-### Added - Framer Design System Alignment (Phase 1)
+### Added - Design System Alignment (Phase 1)
 
-This release aligns design tokens with the Lighthouse HLTH Framer marketing site as the single source of truth, ensuring visual consistency across all applications.
+This release aligns design tokens with the Lighthouse HLTH design system as the single source of truth, ensuring visual consistency across all applications.
 
 #### Color Tokens
-- New primary color: `#057C8B` (Lighthouse teal from Framer `/Green`)
-- New accent color: `#FF833B` (Orange from Framer `/Orange`)
-- Framer-exact neutral colors: `black`, `ash-gray`, `grey`, `white`, `white-off`
-- Updated chart colors to use new Framer-aligned primary and accent
+- New primary color: `#057C8B` (Lighthouse teal)
+- New accent color: `#FF833B` (Orange)
+- Design system neutral colors: `black`, `ash-gray`, `grey`, `white`, `white-off`
+- Updated chart colors to use new primary and accent
 - Deprecated old colors (`primaryOld: #1A8B8B`, `accentOld: #FF8B4B`) for migration path
 
 #### Typography Tokens
-- Framer-exact typography scale:
+- Design system typography scale:
   - Headings: h1 (54px), h2 (42px), h3 (38px), h4 (32px), h5 (28px), h6 (24px)
   - Body text: xl (20px), lg (18px), base (16px), sm (14px)
-- Precise line heights from Framer: 1.2em, 1.25em, 1.3em, 1.35em, 1.4em, 1.5em, 1.55em, 1.6em, 1.65em
+- Precise line heights: 1.2em, 1.25em, 1.3em, 1.35em, 1.4em, 1.5em, 1.55em, 1.6em, 1.65em
 - Exact letter spacing for headings: -0.045em, -0.04em, -0.03em, -0.025em, -0.02em, -0.015em
-- Unified font family: Inter for all text (Option B - font fallback strategy)
-- Complete text style mappings from Framer `/Heading` and `/Paragraph` styles
+- Unified font family: Inter for all text (font fallback strategy)
+- Complete heading and paragraph text style mappings
 
 #### Spacing Tokens
-- Framer-specific gap values: 5px (1.25), 7px (1.75), 9px (2.25)
+- Additional gap values: 5px (1.25), 7px (1.75), 9px (2.25)
 - All existing spacing values preserved for backward compatibility
 
 #### Border Radius Tokens
-- Updated `full: 999px` for Framer-style button pill shapes (was 9999px)
+- Updated `full: 999px` for pill button shapes (was 9999px)
 
 #### Tailwind Configuration
-- Complete Tailwind config updated with all Framer design tokens
+- Complete Tailwind config updated with all design system tokens
 - New utility classes: `text-h1` through `text-h6`, `text-body-xl` through `text-body-sm`
-- Framer-aligned line height utilities: `leading-h1`, `leading-body`, etc.
-- Framer-aligned letter spacing: `tracking-h1`, `tracking-h2`, etc.
-- Framer color utilities: `bg-ash-gray`, `text-grey`, `border-white-off`
+- Line height utilities: `leading-h1`, `leading-body`, etc.
+- Letter spacing utilities: `tracking-h1`, `tracking-h2`, etc.
+- Color utilities: `bg-ash-gray`, `text-grey`, `border-white-off`
 
 ### Changed
 
-- Primary color: `#1A8B8B` → `#057C8B` (Framer alignment)
-- Accent color: `#FF8B4B` → `#FF833B` (Framer alignment)
+- Primary color: `#1A8B8B` → `#057C8B` (design system alignment)
+- Accent color: `#FF8B4B` → `#FF833B` (design system alignment)
 - Font family strategy: Now using Inter universally (was mixed Inter/JetBrains Mono)
-- Border radius `full`: 9999px → 999px (Framer button style)
+- Border radius `full`: 9999px → 999px (pill button style)
 
 ### Deprecated
 
@@ -846,10 +835,10 @@ This release aligns design tokens with the Lighthouse HLTH Framer marketing site
 
 ### Documentation
 
-- Added comprehensive Framer alignment notes to all token files
-- Documented Framer text style mappings in `typography.ts`
+- Added comprehensive design system alignment notes to all token files
+- Documented text style mappings in `typography.ts`
 - Created `MIGRATION.md` with complete migration guide
-- Updated `README.md` with Framer alignment information
+- Updated `README.md` with design system alignment information
 
 ### Migration Notes
 
@@ -1139,16 +1128,13 @@ Semantic Colors:
 #### Navigation Components
 - `Tabs` - Tab navigation with context API
 
-#### Framer Integration
+#### Animation Support
 - Complete Framer Motion support
 - Pre-built animation variants
-- Framer Code Component examples
-- Property controls for Framer
 
 #### Documentation & Examples
 - Comprehensive README with usage examples
 - Basic usage examples
-- Framer-specific examples
 - Storybook configuration
 - TypeScript definitions
 

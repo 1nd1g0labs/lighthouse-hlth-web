@@ -45,3 +45,4 @@ out/
 
 # Superpowers brainstorm sessions
 .superpowers/
+.vercel

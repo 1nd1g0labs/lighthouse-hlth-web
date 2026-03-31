@@ -27,21 +27,14 @@
       "require": "./dist/tokens/index.js"
     },
     "./tokens/tokens.css": "./dist/tokens/tokens.css",
-    "./tokens/framer-tokens.json": "./dist/tokens/framer-tokens.json",
-    "./tokens/email-tokens.css": "./dist/tokens/email-tokens.css",
-    "./framer": {
-      "types": "./dist/framer/index.d.ts",
-      "import": "./dist/framer/index.mjs",
-      "require": "./dist/framer/index.js"
-    }
+    "./tokens/email-tokens.css": "./dist/tokens/email-tokens.css"
   },
   "files": ["dist", "README.md", "LICENSE", "NOTICE"],
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup && npm run generate:tokens",
     "build:lib": "tsup && npm run generate:tokens",
-    "generate:tokens": "ts-node --project scripts/tsconfig.json scripts/generate-css.ts && ts-node --project scripts/tsconfig.json scripts/generate-framer-tokens.ts && ts-node --project scripts/tsconfig.json scripts/generate-email-css.ts",
-    "sync:framer": "ts-node --project scripts/tsconfig.json scripts/sync-framer-tokens.ts",
+    "generate:tokens": "ts-node --project scripts/tsconfig.json scripts/generate-css.ts && ts-node --project scripts/tsconfig.json scripts/generate-email-css.ts",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write \"src/**/*.{ts,tsx,json,css}\"",
@@ -49,7 +42,7 @@
     "build-storybook": "storybook build && touch ./storybook-static/.nojekyll",
     "prepublishOnly": "npm run build:lib"
   },
-  "keywords": ["react", "nextjs", "framer", "design-system", "ui-library", "healthcare", "sustainability", "lighthouse-health"],
+  "keywords": ["react", "nextjs", "design-system", "ui-library", "healthcare", "sustainability", "lighthouse-health"],
   "author": "Indigo Labs LLC",
   "license": "SEE LICENSE IN LICENSE",
   "private": false,

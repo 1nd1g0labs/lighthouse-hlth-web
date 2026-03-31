@@ -5,15 +5,15 @@
 
 Healthcare sustainability design system. Brand-aligned components for carbon tracking, operations dashboards, and mission-driven health systems.
 
-**Design System Alignment:** This component library is aligned with the Lighthouse HLTH Framer marketing site as the single source of truth. Design tokens extracted from Framer ensure visual consistency across all applications.
+**Design System Alignment:** This component library powers the Lighthouse HLTH Next.js application. Design tokens are maintained in the monorepo to ensure visual consistency across all applications.
 
-**v1.0.0 Milestone:** Complete Framer alignment with 11 production-ready components, full WCAG 2.1 AA accessibility compliance, and comprehensive Storybook documentation.
+**v1.0.0 Milestone:** 11 production-ready components, full WCAG 2.1 AA accessibility compliance, and comprehensive Storybook documentation.
 
 ## Quick Start
 
 ### Install
 
-**Note:** This package is hosted on GitHub Package Registry. See [PUBLISHING.md](./PUBLISHING.md) for setup instructions.
+**Note:** This package is hosted on GitHub Package Registry.
 
 ```bash
 npm install @1nd1g0labs/lighthouse-hlth-ui

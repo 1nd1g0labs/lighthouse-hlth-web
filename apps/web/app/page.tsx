@@ -38,7 +38,7 @@ const features = [
 
 const expertiseTags = [
   'Healthcare carbon accounting architecture',
-  'Pharmaceutical emissions (ECOVAMED)',
+  'Pharmaceutical emissions expertise',
   '100+ hospital deployments',
   'Award-winning platform',
 ];

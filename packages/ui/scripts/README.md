@@ -6,8 +6,7 @@ This directory contains scripts for exporting design tokens from the canonical T
 
 Lighthouse HLTH UI is the **Single Source of Truth (SSOT)** for all design decisions. These scripts enable design token distribution to:
 
-- **CSS Variables** - For vanilla HTML, Framer, and non-React contexts
-- **Framer JSON** - For importing color/text styles into Framer via MCP
+- **CSS Variables** - For vanilla HTML and non-React contexts
 - **Email CSS** - For Postmark transactional email templates (inline-safe)
 
 ## Architecture
@@ -17,7 +16,6 @@ lighthouse-hlth-ui (SSOT)
 ├── tailwind.config.js          # Master configuration
 └── scripts/
     ├── generate-css.ts          → dist/tokens/tokens.css
-    ├── generate-framer-tokens.ts → dist/tokens/framer-tokens.json
     └── generate-email-css.ts    → dist/tokens/email-tokens.css
 ```
 
@@ -25,90 +23,7 @@ All scripts read from `tailwind.config.js` and generate platform-specific output
 
 ## Scripts
 
-### 1. `sync-framer-tokens.ts` ⭐ NEW
-
-**Purpose:** Automatically sync all design tokens to live Framer project via MCP API
-
-**Output:** Updates Framer color/text styles + audit logs in `logs/framer-sync/`
-
-**What it does:**
-- Updates 8 existing Framer color styles to match design system
-- Creates 16 new color styles (semantic, GHG, surfaces, text, borders)
-- Updates 10 existing text styles (fixes fonts: InterDisplay/Satoshi → Inter)
-- Creates 12 new text styles (app scale, metrics)
-- Handles style path migration (e.g., `/Green` → `/Brand/Primary`)
-- Generates comprehensive audit logs
-
-**Usage:**
-```bash
-# Preview changes (dry-run)
-npm run sync:framer -- --dry-run
-
-# Sync everything to Framer
-npm run sync:framer
-
-# Sync only colors
-npm run sync:framer -- --colors-only
-
-# Sync only text styles
-npm run sync:framer -- --text-only
-
-# Verbose output
-npm run sync:framer -- --dry-run --verbose
-```
-
-**Prerequisites:**
-- Framer MCP server must be connected (`.claude/mcp.json`)
-- Generated tokens file must exist: `dist/tokens/framer-tokens.json`
-- Run `npm run generate:tokens` first if missing
-
-**Output example:**
-```
-============================================================
-ℹ Framer Design Token Sync
-============================================================
-
-✅ Loaded 22 color styles
-✅ Loaded 22 text styles
-
-ℹ Syncing 22 color styles...
-✅ ↻ /Brand/Primary
-✅ ＋ /Brand/Sustainability
-✅ ↻ /Semantic/Warning
-...
-
-============================================================
-ℹ Sync Summary
-============================================================
-
-Color Styles:
-✅   16 created
-✅   6 updated
-
-Text Styles:
-✅   12 created
-✅   10 updated
-
-Total:
-✅   44 successful
-============================================================
-```
-
-**Documentation:** See `/docs/FRAMER_SYNC.md` for complete guide
-
-**Migration handled:**
-| Old Path | New Path | Action |
-|----------|----------|--------|
-| `/Green` | `/Brand/Primary` | UPDATE |
-| `/Orange` | `/Semantic/Warning` | UPDATE |
-| `/Black` | `/Text/Text Main` | UPDATE |
-| `/Grey` | `/Text/Text Muted` | UPDATE |
-| `/White off` | `/Surfaces/Canvas` | UPDATE |
-| `/18`, `/16`, `/14`, `/20` | `/Marketing / Body *` | UPDATE + rename |
-
----
-
-### 2. `generate-css.ts`
+### 1. `generate-css.ts`
 
 **Purpose:** Generate CSS custom properties (CSS variables) for non-React contexts
 
@@ -151,76 +66,7 @@ import '@1nd1g0labs/lighthouse-hlth-ui/dist/tokens/tokens.css';
 
 ---
 
-### 3. `generate-framer-tokens.ts`
-
-**Purpose:** Generate Framer-compatible JSON for color and text styles
-
-**Output:** `dist/tokens/framer-tokens.json`
-
-**What it generates:**
-```json
-{
-  "version": "1.0.0",
-  "generated": "2025-12-26T...",
-  "colorStyles": [
-    {
-      "stylePath": "/Brand/Primary",
-      "properties": {
-        "name": "Primary",
-        "light": "#066E76",
-        "dark": null
-      }
-    }
-  ],
-  "textStyles": [
-    {
-      "stylePath": "/Marketing / Heading 1",
-      "properties": {
-        "fontSize": "54px",
-        "lineHeight": "1.2em",
-        "letterSpacing": "-0.045em",
-        "tag": "h1"
-      }
-    }
-  ]
-}
-```
-
-**Usage:**
-```bash
-npm run generate:tokens
-# or
-ts-node scripts/generate-framer-tokens.ts
-```
-
-**Consumer workflow (Framer via MCP):**
-1. Generate tokens: `npm run generate:tokens`
-2. Read `dist/tokens/framer-tokens.json`
-3. Use Framer MCP tools to import:
-   ```typescript
-   // For each color style:
-   manageColorStyle({
-     type: 'create',
-     stylePath: '/Brand/Primary',
-     properties: { name: 'Primary', light: '#066E76' }
-   });
-
-   // For each text style:
-   manageTextStyle({
-     type: 'create',
-     stylePath: '/Marketing / Heading 1',
-     properties: { fontSize: '54px', lineHeight: '1.2em', ... }
-   });
-   ```
-
-**Important notes:**
-- Font mapping: Currently uses generic font names. In production, map to Framer font selectors (e.g., `"GF;Inter-600"`)
-- Dark mode: Dark color values set to `null` for now. Add dark mode in future iteration
-- Organization: Color styles organized in folders (Brand, Semantic, GHG, Surfaces, Text, Borders)
-
----
-
-### 4. `generate-email-css.ts`
+### 2. `generate-email-css.ts`
 
 **Purpose:** Generate email-safe inline CSS snippet for Postmark templates
 
@@ -277,11 +123,10 @@ ts-node scripts/generate-email-css.ts
 npm run generate:tokens
 ```
 
-This runs all three generators in sequence and outputs to `dist/tokens/`:
+This runs both generators in sequence and outputs to `dist/tokens/`:
 ```
 dist/tokens/
 ├── tokens.css          # CSS variables
-├── framer-tokens.json  # Framer color/text styles
 └── email-tokens.css    # Email-safe inline CSS
 ```
 
@@ -292,7 +137,7 @@ Token generation is integrated into the build pipeline:
 ```json
 {
   "scripts": {
-    "generate:tokens": "ts-node scripts/generate-css.ts && ts-node scripts/generate-framer-tokens.ts && ts-node scripts/generate-email-css.ts",
+    "generate:tokens": "ts-node scripts/generate-css.ts && ts-node scripts/generate-email-css.ts",
     "build": "npm run generate:tokens && tsup"
   }
 }
@@ -321,13 +166,11 @@ Token generation is integrated into the build pipeline:
 3. **Verify outputs:**
    ```bash
    cat dist/tokens/tokens.css
-   cat dist/tokens/framer-tokens.json
    cat dist/tokens/email-tokens.css
    ```
 
 4. **Test consumers:**
    - **Next.js app:** `npm run dev` in consuming project
-   - **Framer:** Import JSON via MCP tools
    - **Email:** Update Postmark templates
 
 5. **Commit and publish:**
@@ -362,22 +205,6 @@ cat dist/tokens/tokens.css | grep "primary-500"
 # --lh-primary-500: #066E76;
 ```
 
-**Test Framer JSON:**
-```bash
-npm run generate:tokens
-cat dist/tokens/framer-tokens.json | jq '.colorStyles[] | select(.stylePath == "/Brand/Primary")'
-
-# Expected output:
-# {
-#   "stylePath": "/Brand/Primary",
-#   "properties": {
-#     "name": "Primary",
-#     "light": "#066E76",
-#     "dark": null
-#   }
-# }
-```
-
 **Test email CSS:**
 ```bash
 npm run generate:tokens
@@ -395,7 +222,6 @@ npm run test:tokens
 # Test cases:
 # - All tokens present in outputs
 # - No TypeScript compilation errors
-# - Valid JSON structure (framer-tokens.json)
 # - Valid CSS syntax (tokens.css, email-tokens.css)
 # - Color contrast ratios meet WCAG 2.1 AA
 ```
@@ -419,23 +245,6 @@ mkdir -p dist/tokens
 npm run generate:tokens
 ```
 
-### Issue: Framer import fails with "Invalid font selector"
-
-**Context:** Framer expects specific font selectors (e.g., `"GF;Inter-600"` for Google Fonts)
-
-**Current state:** Scripts use generic font names (`"Inter"`)
-
-**Solution:** Map font names to Framer selectors:
-1. Use Framer MCP `searchFonts` tool to find selectors
-2. Update `generate-framer-tokens.ts` mapping:
-   ```typescript
-   const fontMapping = {
-     'Inter': 'GF;Inter-400',
-     'Inter-600': 'GF;Inter-600',
-     'JetBrains Mono': 'GF;JetBrains-Mono-400',
-   };
-   ```
-
 ### Issue: Email colors not rendering in Outlook
 
 **Possible causes:**
@@ -452,31 +261,28 @@ npm run generate:tokens
 | File | Owner | Update Frequency |
 |------|-------|------------------|
 | `generate-css.ts` | fullstack-engineer | When adding new token categories |
-| `generate-framer-tokens.ts` | healthtech-ui-designer + fullstack-engineer | When Framer integration changes |
 | `generate-email-css.ts` | fullstack-engineer | When email templates need new styles |
 | `README.md` (this file) | PM + fullstack-engineer | When workflows change |
 
 ## Related Documentation
 
-- **Design System:** `/DESIGN_SYSTEM.md` - Complete design language documentation
+- **Design Tokens:** `/DESIGN_TOKENS.md` - Color palette, typography, and spacing reference
 - **Dark Mode:** `/DARK_MODE_SPECIFICATION.md` - Dark mode token specifications
 - **Architecture:** `/docs/product-specs/design-ssot-architecture.md` - SSOT strategy
-- **Framer Integration:** `/docs/FRAMER_INTEGRATION.md` (future) - Framer import guide
 
 ## Future Enhancements
 
-- [ ] **Dark mode tokens:** Generate dark mode CSS variables and Framer styles
+- [ ] **Dark mode tokens:** Generate dark mode CSS variables
 - [ ] **React Native tokens:** Export tokens for mobile app (StyleSheet format)
 - [ ] **Tailwind preset:** Export reusable Tailwind preset for consuming apps
 - [ ] **Automated testing:** Validate generated outputs in CI/CD
 - [ ] **Pre-commit hook:** Auto-regenerate tokens on Tailwind config changes
-- [ ] **Framer MCP automation:** Auto-import tokens to Framer on build
 - [ ] **Design token documentation site:** Interactive token browser (Storybook addon)
 
 ---
 
-**Version:** 1.0.0
-**Last Updated:** 2025-12-26
+**Version:** 1.1.0
+**Last Updated:** 2026-03-30
 **Owner:** fullstack-engineer
 
 ---

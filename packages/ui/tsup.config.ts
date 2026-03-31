@@ -4,7 +4,6 @@ export default defineConfig({
   entry: {
     index: 'src/index.ts',
     'tokens/index': 'src/tokens/index.ts',
-    'framer/index': 'src/framer/index.ts',
   },
   format: ['cjs', 'esm'],
   dts: true,

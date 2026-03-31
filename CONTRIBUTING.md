@@ -146,7 +146,7 @@ export const Secondary: Story = {
 
 **Required:**
 - ✅ TypeScript with full type coverage
-- ✅ Framer alignment (match marketing site design tokens)
+- ✅ Design system alignment (match design tokens in tailwind.config.js)
 - ✅ WCAG 2.1 AA accessibility compliance
 - ✅ Tailwind CSS classes (e.g., `bg-primary-500`, `text-h1`)
 - ✅ `React.forwardRef` for ref support
@@ -158,7 +158,7 @@ export const Secondary: Story = {
 
 **Prohibited:**
 - ❌ Inline styles (use Tailwind)
-- ❌ Non-Framer-aligned design tokens
+- ❌ Design tokens not defined in tailwind.config.js
 - ❌ Accessibility violations
 - ❌ Hard-coded colors (use design tokens)
 - ❌ Missing TypeScript types
@@ -217,7 +217,7 @@ export const Secondary: Story = {
    - Clear description of changes
    - Screenshots/GIFs of UI changes
    - Breaking changes noted
-   - Framer alignment confirmation
+   - Design system consistency confirmation
    - Accessibility compliance confirmation
 
 6. **Code Review**

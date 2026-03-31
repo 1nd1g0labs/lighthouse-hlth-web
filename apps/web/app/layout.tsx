@@ -1,8 +1,15 @@
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
 import { getOrganizationJsonLd } from '@/lib/metadata';
 import './globals.css';
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -27,7 +34,7 @@ export default function RootLayout({
   const jsonLd = getOrganizationJsonLd();
 
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         <script
           type="application/ld+json"
