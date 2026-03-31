@@ -25,11 +25,10 @@
 - [ ] Refactoring
 - [ ] Other (describe):
 
-## Framer Alignment
-
-- [ ] This change aligns with Framer marketing site design tokens
-- [ ] Framer nodeId referenced (if applicable):
-- [ ] Design tokens verified against Framer source
+## Design System
+- [ ] Changes align with design tokens in `tailwind.config.js`
+- [ ] Responsive: tested at 375px and 1440px
+- [ ] Accessibility: no new violations
 
 ## Accessibility Compliance
 
@@ -91,7 +90,7 @@ By submitting this pull request, I confirm that:
 
 - [ ] Code review completed
 - [ ] Accessibility review completed
-- [ ] Framer alignment verified
+- [ ] Design system alignment verified
 - [ ] Tests pass
 - [ ] Ready to merge
 

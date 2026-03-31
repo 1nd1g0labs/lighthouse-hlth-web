@@ -20,7 +20,7 @@ This document establishes governance for the Lighthouse HLTH design system (`lig
 ## 2. Governance Principles
 
 1. **UI Repo is the Single Source of Truth (SSOT):** All design tokens, components, and specifications originate from `lighthouse-hlth-ui`
-2. **Downstream Consumers Sync, Not Fork:** Framer, emails, forms, and apps import from SSOT; they do not create independent styles
+2. **Downstream Consumers Sync, Not Fork:** Marketing site, emails, forms, and apps import from SSOT; they do not create independent styles
 3. **Changes Flow One Direction:** UI Repo changes propagate downstream; downstream platforms do not define new tokens
 4. **Lightweight for Speed:** Governance adds clarity, not bureaucracy
 5. **Document Decisions:** Design rationale is captured for future reference
@@ -75,7 +75,7 @@ Create a GitHub Issue using the template below:
 
 ### Affected Touchpoints
 - [ ] Next.js App
-- [ ] Framer Website
+- [ ] Marketing Website (Next.js)
 - [ ] Email Templates
 - [ ] Forms
 - [ ] Mobile App
@@ -149,9 +149,8 @@ When design tokens are updated, sync to downstream consumers:
 
 ### After Token Changes
 
-- [ ] **Framer Website:**
-  - [ ] Generate new Framer color styles JSON
-  - [ ] Import updated styles into Framer project
+- [ ] **Marketing Website (Next.js):**
+  - [ ] Verify tokens in apps/web/tailwind.config.ts
   - [ ] Verify pages render correctly
 - [ ] **Email Templates:**
   - [ ] Regenerate email CSS snippet
@@ -205,7 +204,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - CSS Variables export for non-React consumers
-- Framer color styles JSON export
+- Tailwind design tokens export
 
 ### Changed
 - Updated primary-500 from #057C8B to #066E76 (Luminous Climate Clinical)

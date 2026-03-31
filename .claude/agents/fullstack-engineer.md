@@ -23,7 +23,7 @@ monorepo: TurboRepo
     /platform: Next.js 14+ App Router (primary dashboard)
     /mobile: React Native (future: sustainability field tracking)
   /packages:
-    /ui: React + Tailwind + Framer components (CVA pattern)
+    /ui: React + Tailwind components (CVA pattern)
     /logic: Pure TypeScript business logic (market-agnostic)
     /database: Supabase client with RLS enforcement
     /analytics: Metrics processing & calculation engine
@@ -137,7 +137,7 @@ export function calculateVerifiedSavings(
 
 ## With Design Agent
 **What you need from them**:
-- Component specifications in Figma/Framer
+- Component specifications in design tokens
 - Accessibility requirements (WCAG compliance for hospital staff)
 - Responsive breakpoints (desktop, tablet, mobile)
 - Animation/interaction specifications

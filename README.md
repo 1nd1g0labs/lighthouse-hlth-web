@@ -58,7 +58,6 @@ Features:
 - Interactive component playground
 - Complete props documentation
 - Accessibility annotations
-- Framer alignment details
 - Design token reference
 - Usage examples
 
@@ -66,28 +65,28 @@ Features:
 
 ### Tier 1: Core Interactive Components
 
-Perfect pixel-match to Framer marketing site. Production-ready with full WCAG 2.1 AA compliance.
+Production-ready design system with full WCAG 2.1 AA compliance.
 
-| Component | Variants | Description | Framer nodeId |
-|-----------|----------|-------------|---------------|
-| **Button** | green-left, green-right, white-left, white-right, white-static | Primary CTA with animated arrow | `Jobckk162` |
-| **FormButton** | 7 states (default, hover, loading, active, disabled, success, error) | Form submission button with state feedback | `u_ERU5JMM` |
-| **Label** | default, compact | Rating/review label with avatars and stars | `pJf7jULqM` |
-| **LinkButton** | forward-black, forward-white, backward-black, backward-white | Text link with animated arrow | `Y9sUo0Uzx` |
+| Component | Variants | Description |
+|-----------|----------|-------------|
+| **Button** | green-left, green-right, white-left, white-right, white-static | Primary CTA with animated arrow |
+| **FormButton** | 7 states (default, hover, loading, active, disabled, success, error) | Form submission button with state feedback |
+| **Label** | default, compact | Rating/review label with avatars and stars |
+| **LinkButton** | forward-black, forward-white, backward-black, backward-white | Text link with animated arrow |
 
 ### Tier 2: Navigation & Feedback Components
 
-Complete navigation, ratings, and footer components matching Framer marketing site.
+Complete navigation, ratings, and footer components.
 
-| Component | Variants | Description | Framer nodeId |
-|-----------|----------|-------------|---------------|
-| **FAQButton** | isActive (true/false) | Accordion button with chevron animation | `uYy4zA47k` |
-| **SocialIcon** | default, filled | Social media icons (6 platforms, 40px circular) | `nxyfQcMau` |
-| **Rating** | sm, md, lg | 1-5 star rating display with optional numeric value | `WidH99kQU` |
-| **Navlink** | isActive (true/false) | Navigation link with active state indicator | `o7u8VYGZ_` |
-| **FooterLink** | default, light | Footer links with subtle hover effects | `A3i_k4Ana` |
-| **ContactLink** | default, primary | Contact links with icons (email, phone, location) | `hLwN6bqq3` |
-| **SectionTag** | primary, accent, neutral | Section labels/tags for categorization | `Y70PDA6Rc` |
+| Component | Variants | Description |
+|-----------|----------|-------------|
+| **FAQButton** | isActive (true/false) | Accordion button with chevron animation |
+| **SocialIcon** | default, filled | Social media icons (6 platforms, 40px circular) |
+| **Rating** | sm, md, lg | 1-5 star rating display with optional numeric value |
+| **Navlink** | isActive (true/false) | Navigation link with active state indicator |
+| **FooterLink** | default, light | Footer links with subtle hover effects |
+| **ContactLink** | default, primary | Contact links with icons (email, phone, location) |
+| **SectionTag** | primary, accent, neutral | Section labels/tags for categorization |
 
 ### Additional Components
 
@@ -102,28 +101,28 @@ Complete navigation, ratings, and footer components matching Framer marketing si
 
 Badge, Alert, Progress, Modal, Tooltip, Tabs, Input, Select, Checkbox, Radio, Textarea, Container, Stack, Grid
 
-Available for use. Will be Framer-aligned in future releases.
+Available for use. Additional variants planned for future releases.
 
 ## Key Info
 
-### Brand Colors (v1.0.0 - Framer Aligned)
-- **Primary (Lighthouse Teal)**: `#057C8B` - Trust, healing, environmental stewardship (from Framer `/Green`)
-- **Accent (Orange)**: `#FF833B` - Warmth, energy, action (from Framer `/Orange`)
+### Brand Colors (v1.0.0)
+- **Primary (Lighthouse Teal)**: `#057C8B` - Trust, healing, environmental stewardship
+- **Accent (Orange)**: `#FF833B` - Warmth, energy, action
 - **Secondary (Green)**: `#4CAF50` - Sustainability, growth
-- **Neutrals**: `black`, `ash-gray`, `grey`, `white`, `white-off` (from Framer)
+- **Neutrals**: `black`, `ash-gray`, `grey`, `white`, `white-off`
 
 Use as Tailwind classes: `bg-primary-500`, `text-accent-500`, `border-ash-gray`
 
-### Typography (v1.0.0 - Framer Aligned)
+### Typography (v1.0.0)
 - **Font**: Inter for all text (unified font strategy)
 - **Headings**: h1 (54px), h2 (42px), h3 (38px), h4 (32px), h5 (28px), h6 (24px)
 - **Body**: xl (20px), lg (18px), base (16px), sm (14px)
-- **Framer-exact line heights and letter spacing**: Negative tracking for headings, precise line heights
-- **Use**: `text-h1`, `text-body-lg`, `leading-h2`, `tracking-h1` for Framer-aligned typography
+- **Line heights and letter spacing**: Negative tracking for headings, precise line heights
+- **Use**: `text-h1`, `text-body-lg`, `leading-h2`, `tracking-h1` for design-token-aligned typography
 
-### Spacing (v1.0.0 - Framer Aligned)
-- **System**: 4px base unit + Framer-specific gaps (5px, 7px, 9px)
-- **Tailwind**: `p-4`, `gap-6`, `space-y-8`, `gap-1.25` (Framer 5px), `gap-1.75` (Framer 7px), `gap-2.25` (Framer 9px)
+### Spacing (v1.0.0)
+- **System**: 4px base unit with additional gaps (5px, 7px, 9px)
+- **Tailwind**: `p-4`, `gap-6`, `space-y-8`, `gap-1.25` (5px), `gap-1.75` (7px), `gap-2.25` (9px)
 
 ### Tech Requirements
 - **React**: 18+
@@ -194,30 +193,30 @@ Update package: `npm install @1nd1g0labs/lighthouse-hlth-ui@latest`
 **Tailwind v4 conflicts?**
 Styles are pre-compiled, no conflicts. Just import the CSS.
 
-## Design Tokens (v0.3.0 - Framer Aligned)
+## Design Tokens (v0.3.0)
 
 ```tsx
 import { colors, spacing, typography } from '@1nd1g0labs/lighthouse-hlth-ui/tokens';
 
-// Access Framer-aligned values programmatically
-colors.primary[500]            // #057C8B (Framer exact)
-colors.accent[500]             // #FF833B (Framer exact)
-colors.ashGray                 // #7F8082 (Framer /Ash Gray)
-spacing[1.25]                  // 0.3125rem (5px - Framer gap)
-typography.fontSize.h1         // '54px' (Framer /Heading xl)
-typography.textStyles.heading.h1  // Complete Framer text style
+// Access design token values programmatically
+colors.primary[500]            // #057C8B
+colors.accent[500]             // #FF833B
+colors.ashGray                 // #7F8082
+spacing[1.25]                  // 0.3125rem (5px)
+typography.fontSize.h1         // '54px'
+typography.textStyles.heading.h1  // Complete heading text style
 typography.fonts.sans          // 'Inter', system fonts
 
-// Framer text style mappings
-typography.textStyles.heading.xl   // Framer /Heading xl (54px)
-typography.textStyles.body.base    // Framer /Paragraph m (16px)
+// Text style mappings
+typography.textStyles.heading.xl   // Heading xl (54px)
+typography.textStyles.body.base    // Paragraph m (16px)
 ```
 
-### Framer Text Style Reference
-- **Headings:** `/Heading xl` (h1), `/Heading l` (h2), `/Heading m` (h3), `/Heading s` (h4), `/Heading xs` (h5), `/Heading xxs` (h6)
-- **Paragraphs:** `/Paragraph xl` (20px), `/Paragraph l` (18px), `/Paragraph m` (16px), `/Paragraph s` (14px)
+### Text Style Reference
+- **Headings:** `xl` (h1), `l` (h2), `m` (h3), `s` (h4), `xs` (h5), `xxs` (h6)
+- **Paragraphs:** `xl` (20px), `l` (18px), `m` (16px), `s` (14px)
 
-See `src/tokens/` for complete Framer alignment documentation.
+See `src/tokens/` for complete design token documentation.
 
 ## Project Structure
 
