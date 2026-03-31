@@ -1,16 +1,9 @@
 import Link from 'next/link';
 import { Section } from '@/components/section';
-import { KpiCard } from '@/components/kpi-card';
 import { CarbonIcon, FootprintIcon, CapitalIcon } from '@/components/icons';
 import { Clock, CheckSquare, DollarSign, Users } from 'lucide-react';
 import { getAllPosts } from '@/lib/blog';
-
-const kpis = [
-  { value: '92%', label: 'Anesthetic gas reduction', detail: '$84K saved' },
-  { value: '$220K', label: 'HVAC retrofit savings', detail: 'During wildfire events' },
-  { value: '47%', label: 'Less hazardous waste', detail: 'Procurement shift' },
-  { value: '8.5%', label: 'Hospital emissions share', detail: 'Often invisible to ops' },
-];
+import { CapitalCard } from '@/components/capital-card';
 
 const products = [
   {
@@ -50,43 +43,67 @@ const expertiseTags = [
   'Award-winning platform',
 ];
 
+const heroStats = [
+  { value: '$67K', label: 'Avg savings (CAH)', aria: '67 thousand dollars average annual savings for critical access hospitals' },
+  { value: '18 mo', label: 'ROI payback', aria: '18 month return on investment payback period' },
+  { value: '1-click', label: 'HB21-1286', aria: 'One click H B 21 1286 compliance reporting' },
+];
+
 export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-navy to-primary px-6 py-20 text-center text-white md:py-32">
-        <div className="mx-auto max-w-3xl">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-white/60">
-            Healthcare Sustainability Platform
-          </p>
-          <h1 className="text-h3 font-bold md:text-h2">
-            Your hospital&apos;s climate impact — now clinically actionable
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-body text-white/80">
-            Reduce emissions, improve patient care, and save money — all from one integrated platform.
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link href="/contact" className="rounded-md bg-primary-soft px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary">
-              Schedule a Call
-            </Link>
-            <Link href="#whitepaper" className="rounded-md border border-white/30 px-6 py-3 text-sm text-white transition-colors hover:bg-white/10">
-              Download White Paper
-            </Link>
+      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-teal-50/30 to-teal-100/20">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 py-16 md:py-20 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-24">
+          {/* Left: Copy */}
+          <div>
+            <span className="inline-block rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
+              Colorado Healthcare Sustainability
+            </span>
+
+            <h1 className="mt-5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+              15–20% margin improvement.{' '}
+              <span className="text-primary">Compliance built in.</span>
+            </h1>
+
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-600 lg:text-base">
+              Platform access included. Audit-ready reporting. Outcome-based pricing that shares your risk.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link
+                href="/contact"
+                className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold text-white transition-colors hover:bg-primary-soft"
+              >
+                Calculate Your ROI →
+              </Link>
+              <Link
+                href="/colorado-playbook"
+                className="inline-flex h-11 items-center text-sm font-medium text-navy underline underline-offset-4 transition-colors hover:text-primary"
+              >
+                Colorado Playbook ↗
+              </Link>
+            </div>
+
+            <div className="mt-10 flex gap-6" role="list" aria-label="Key performance metrics">
+              {heroStats.map((stat, i) => (
+                <div key={stat.value} className="flex items-start gap-6" role="listitem" aria-label={stat.aria}>
+                  {i > 0 && <div className="h-10 w-px bg-gray-200" aria-hidden="true" />}
+                  <div>
+                    <p className="text-lg font-extrabold text-navy sm:text-xl">{stat.value}</p>
+                    <p className="text-[10px] font-medium text-gray-400 sm:text-xs">{stat.label}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Product Card */}
+          <div className="lg:pl-4">
+            <CapitalCard />
           </div>
         </div>
       </section>
-
-      {/* KPI Strip */}
-      <Section className="bg-canvas">
-        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.12em] text-neutral-500">
-          Proven Results
-        </p>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          {kpis.map((kpi) => (
-            <KpiCard key={kpi.value} {...kpi} />
-          ))}
-        </div>
-      </Section>
 
       {/* Platform Products */}
       <Section id="platform" className="bg-white">
