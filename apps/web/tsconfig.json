@@ -26,6 +26,7 @@
     "**/*.mdx",
     "**/*.ts",
     "**/*.tsx",
+    "env.d.ts",
     "next-env.d.ts",
     ".next/types/**/*.ts"
   ],
