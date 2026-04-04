@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { href: '/#platform', label: 'Platform' },
@@ -52,27 +53,37 @@ export function Nav() {
       </nav>
 
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="border-b border-white/10 bg-navy/80 px-6 py-4 backdrop-blur-xl md:hidden">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="block py-3 text-sm text-white/80"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
-            className="mt-3 block rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white"
-            onClick={() => setMobileOpen(false)}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="overflow-hidden border-b border-white/10 bg-navy/80 backdrop-blur-xl md:hidden"
           >
-            Contact us →
-          </Link>
-        </div>
-      )}
+            <div className="px-6 py-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block py-3 text-sm text-white/80"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/contact"
+                className="mt-3 block rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white"
+                onClick={() => setMobileOpen(false)}
+              >
+                Contact us →
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
