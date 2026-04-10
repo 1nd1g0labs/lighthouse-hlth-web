@@ -69,9 +69,15 @@ const faqs = [
   { q: 'Who built this?', a: 'CliniCarbon is published by Lighthouse HLTH, founded by Nicolas Vinson. Nick previously built and exited shadow.eco, a carbon accounting SaaS bootstrapped in France and Quebec.' },
 ];
 
+const LS_INDIVIDUAL_URL = 'https://lighthousehlth.lemonsqueezy.com/checkout/buy/e18d1771-2464-435d-a082-43009044f595';
+const LS_TEAM_URL = 'https://lighthousehlth.lemonsqueezy.com/checkout/buy/6ace11cc-b01a-4dcc-9414-60fb66248eb0';
+
 export default function CarbonPage() {
   return (
     <>
+      {/* Lemon Squeezy overlay checkout */}
+      <script src="https://assets.lemonsqueezy.com/lemon.js" defer />
+
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy to-primary/80 px-6 py-20 text-white md:py-28">
         <div className="mx-auto max-w-7xl lg:px-8">
@@ -93,17 +99,17 @@ export default function CarbonPage() {
             </FadeIn>
             <FadeIn delay={0.3}>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Link
-                  href="#pricing"
-                  className="inline-flex h-12 items-center justify-center rounded-md bg-white px-8 text-sm font-semibold text-navy transition-colors hover:bg-gray-100"
+                <a
+                  href={LS_INDIVIDUAL_URL}
+                  className="lemonsqueezy-button inline-flex h-12 items-center justify-center rounded-md bg-white px-8 text-sm font-semibold text-navy transition-colors hover:bg-gray-100"
                 >
                   Get the 2026 Reference — $750/year
-                </Link>
+                </a>
                 <Link
-                  href="/contact"
+                  href="#pricing"
                   className="inline-flex h-12 items-center justify-center rounded-md border border-white/30 px-6 text-sm font-medium text-white transition-colors hover:bg-white/10"
                 >
-                  Request Sample
+                  See Pricing
                 </Link>
               </div>
             </FadeIn>
@@ -263,12 +269,12 @@ export default function CarbonPage() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/contact"
-                className="mt-8 block rounded-md bg-navy px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-navy/90"
+              <a
+                href={LS_INDIVIDUAL_URL}
+                className="lemonsqueezy-button mt-8 block rounded-md bg-navy px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-navy/90"
               >
                 Get Started →
-              </Link>
+              </a>
             </div>
           </StaggerItem>
           <StaggerItem>
@@ -290,12 +296,12 @@ export default function CarbonPage() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/contact"
-                className="mt-8 block rounded-md bg-primary px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-primary-soft"
+              <a
+                href={LS_TEAM_URL}
+                className="lemonsqueezy-button mt-8 block rounded-md bg-primary px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-primary-soft"
               >
                 Get Started →
-              </Link>
+              </a>
             </div>
           </StaggerItem>
         </StaggerChildren>
@@ -330,12 +336,12 @@ export default function CarbonPage() {
               CliniCarbon gives your team the definitive healthcare carbon accounting reference — auditable, complete, and always current.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link
-                href="#pricing"
-                className="inline-flex h-12 items-center justify-center rounded-md bg-white px-8 text-sm font-semibold text-navy transition-colors hover:bg-gray-100"
+              <a
+                href={LS_INDIVIDUAL_URL}
+                className="lemonsqueezy-button inline-flex h-12 items-center justify-center rounded-md bg-white px-8 text-sm font-semibold text-navy transition-colors hover:bg-gray-100"
               >
                 Get the 2026 Reference →
-              </Link>
+              </a>
               <Link
                 href="mailto:nick@lighthousehlth.com"
                 className="inline-flex h-12 items-center justify-center text-sm font-medium text-white/70 transition-colors hover:text-white"
