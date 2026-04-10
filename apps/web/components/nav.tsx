@@ -4,10 +4,11 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { LighthouseBeam } from '@/components/icons';
 
 const navLinks = [
+  { href: '/carbon', label: 'CliniCarbon' },
   { href: '/#platform', label: 'Platform' },
-  { href: '/colorado-playbook', label: 'Colorado' },
   { href: '/blog', label: 'Blog' },
 ];
 
@@ -18,8 +19,11 @@ export function Nav() {
     <header className="sticky top-0 z-50">
       <nav className="border-b border-white/10 bg-navy/65 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-          <Link href="/" className="text-[15px] font-bold tracking-tight text-white">
-            + Lighthouse HLTH
+          <Link href="/" className="flex items-center gap-2.5">
+            <LighthouseBeam className="text-primary" size={24} />
+            <span className="font-display text-[15px] font-semibold tracking-tight text-white">
+              Lighthouse HLTH
+            </span>
           </Link>
 
           {/* Desktop */}
