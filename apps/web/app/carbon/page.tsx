@@ -88,7 +88,7 @@ export default function CarbonPage() {
               </span>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h1 className="mt-6 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+              <h1 className="mt-6 font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                 The emission factor reference built for healthcare carbon accounting.
               </h1>
             </FadeIn>
@@ -128,7 +128,7 @@ export default function CarbonPage() {
           ].map((stat, i) => (
             <FadeIn key={stat.label} delay={i * 0.1}>
               <div>
-                <p className="text-2xl font-extrabold text-navy">{stat.value}</p>
+                <p className="font-display text-2xl font-bold text-navy">{stat.value}</p>
                 <p className="text-xs font-medium text-gray-400">{stat.label}</p>
               </div>
             </FadeIn>
@@ -140,7 +140,7 @@ export default function CarbonPage() {
       <Section className="bg-canvas">
         <FadeIn>
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-h4 font-bold text-neutral-900 md:text-h3">
+            <h2 className="font-display text-h4 font-semibold text-neutral-900 md:text-h3">
               You&apos;re assembling emission factors from scratch. Every. Single. Engagement.
             </h2>
             <p className="mt-6 text-sm leading-relaxed text-text-muted sm:text-base">
@@ -157,7 +157,7 @@ export default function CarbonPage() {
       <Section className="bg-white">
         <FadeIn>
           <div className="mb-10 text-center">
-            <h2 className="text-h4 font-bold text-neutral-900 md:text-h3">What you get that raw EPA data doesn&apos;t give you.</h2>
+            <h2 className="font-display text-h4 font-semibold text-neutral-900 md:text-h3">What you get that raw EPA data doesn&apos;t give you.</h2>
           </div>
         </FadeIn>
         <StaggerChildren className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -178,7 +178,7 @@ export default function CarbonPage() {
         <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
           <FadeIn>
             <div>
-              <h2 className="text-h4 font-bold text-neutral-900">One workbook. Nine sheets. Full provenance.</h2>
+              <h2 className="font-display text-h4 font-semibold text-neutral-900">One workbook. Nine sheets. Full provenance.</h2>
               <p className="mt-3 text-sm text-text-muted">
                 Every factor includes source citation, publication year, geographic scope, uncertainty notes, and healthcare category.
                 Plus a 4,400-word methodology document covering source selection rationale, factor hierarchy, unit conventions, and regulatory framework mapping.
@@ -229,7 +229,7 @@ export default function CarbonPage() {
       <Section className="bg-white">
         <FadeIn>
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-center text-h4 font-bold text-neutral-900 md:text-h3">
+            <h2 className="text-center font-display text-h4 font-semibold text-neutral-900 md:text-h3">
               For consultants who bill by the hour and can&apos;t afford to waste it on data assembly.
             </h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -248,7 +248,7 @@ export default function CarbonPage() {
       <Section id="pricing" className="bg-canvas">
         <FadeIn>
           <div className="mb-10 text-center">
-            <h2 className="text-h4 font-bold text-neutral-900 md:text-h3">Annual reference subscription</h2>
+            <h2 className="font-display text-h4 font-semibold text-neutral-900 md:text-h3">Annual reference subscription</h2>
             <p className="mt-2 text-sm text-text-muted">Updated annually when EPA publishes new data. Each edition is versioned. Previous editions remain available for base year recalculation.</p>
           </div>
         </FadeIn>
@@ -313,7 +313,7 @@ export default function CarbonPage() {
       {/* FAQ */}
       <Section className="bg-white">
         <FadeIn>
-          <h2 className="mb-8 text-center text-h4 font-bold text-neutral-900">Frequently asked questions</h2>
+          <h2 className="mb-8 text-center font-display text-h4 font-semibold text-neutral-900">Frequently asked questions</h2>
         </FadeIn>
         <div className="mx-auto max-w-2xl divide-y divide-border-subtle">
           {faqs.map((faq) => (
@@ -331,7 +331,7 @@ export default function CarbonPage() {
       <FadeIn>
         <section className="bg-gradient-to-br from-navy to-primary px-6 py-16 text-center text-white">
           <div className="mx-auto max-w-2xl">
-            <h2 className="text-h4 font-bold md:text-h3">Stop assembling emission factors from scratch.</h2>
+            <h2 className="font-display text-h4 font-semibold md:text-h3">Stop assembling emission factors from scratch.</h2>
             <p className="mt-4 text-sm text-white/70">
               CliniCarbon gives your team the definitive healthcare carbon accounting reference — auditable, complete, and always current.
             </p>
