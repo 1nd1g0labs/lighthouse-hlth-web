@@ -18,15 +18,19 @@ export default function Icon() {
         }}
       >
         <svg
-          width="24"
-          height="24"
+          width="26"
+          height="26"
           viewBox="0 0 32 32"
           fill="none"
+          stroke="#0A7E8C"
+          strokeWidth="2.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <line x1="6" y1="26" x2="22" y2="6" stroke="#0A7E8C" strokeWidth="3.5" strokeLinecap="round" />
-          <circle cx="22" cy="6" r="5" fill="#0A7E8C" opacity="0.9" />
-          <circle cx="22" cy="6" r="8" fill="#0A7E8C" opacity="0.2" />
+          <path d="M 4 28 Q 6 22 13 13 L 19 13 Q 26 22 28 28 Z" />
+          <path d="M 16 3 L 16 13" />
+          <path d="M 10 7 L 22 7" />
         </svg>
       </div>
     ),

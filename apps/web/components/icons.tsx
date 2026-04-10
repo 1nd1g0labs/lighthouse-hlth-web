@@ -34,17 +34,20 @@ export function LighthouseBeam({ className, size = 28 }: IconProps) {
       height={size}
       viewBox="0 0 32 32"
       fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-label="Lighthouse HLTH"
     >
-      {/* Beam — angled line from lower-left to upper-right */}
-      <line x1="6" y1="26" x2="22" y2="6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-      {/* Radiating point — circle at beam terminus */}
-      <circle cx="22" cy="6" r="4" fill="currentColor" opacity="0.85" />
-      <circle cx="22" cy="6" r="7" fill="currentColor" opacity="0.15" />
-      {/* Base anchor — short horizontal at foundation */}
-      <line x1="2" y1="28" x2="12" y2="28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      {/* Body: bell-tapered silhouette, closed path */}
+      <path d="M 4 28 Q 6 22 13 13 L 19 13 Q 26 22 28 28 Z" />
+      {/* Cross vertical — continues from body apex upward */}
+      <path d="M 16 3 L 16 13" />
+      {/* Cross horizontal — the light beam */}
+      <path d="M 10 7 L 22 7" />
     </svg>
   );
 }
@@ -56,12 +59,17 @@ export function LighthouseBeamSmall({ className }: { className?: string }) {
       height="18"
       viewBox="0 0 32 32"
       fill="none"
+      stroke="currentColor"
+      strokeWidth="2.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      <line x1="6" y1="26" x2="22" y2="6" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
-      <circle cx="22" cy="6" r="5" fill="currentColor" opacity="0.9" />
+      <path d="M 4 28 Q 6 22 13 13 L 19 13 Q 26 22 28 28 Z" />
+      <path d="M 16 3 L 16 13" />
+      <path d="M 10 7 L 22 7" />
     </svg>
   );
 }
