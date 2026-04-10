@@ -4,13 +4,16 @@ export function getOrganizationJsonLd() {
     '@type': 'Organization',
     name: 'Lighthouse HLTH',
     url: 'https://lighthousehlth.com',
-    logo: 'https://lighthousehlth.com/logo.png',
-    description: 'Healthcare sustainability platform — reduce emissions, improve patient care, and save money.',
+    description: 'Healthcare carbon intelligence — from emission factors to funded capital projects. Founded by Nicolas Vinson, previously shadow.eco (100+ hospitals, EU & Canada).',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Boulder',
       addressRegion: 'CO',
       addressCountry: 'US',
+    },
+    founder: {
+      '@type': 'Person',
+      name: 'Nicolas Vinson',
     },
     contactPoint: {
       '@type': 'ContactPoint',

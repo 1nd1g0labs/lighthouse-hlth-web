@@ -19,11 +19,11 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Lighthouse HLTH | Healthcare Sustainability Platform',
+    default: 'Lighthouse HLTH | Healthcare Carbon Intelligence',
     template: '%s | Lighthouse HLTH',
   },
   description:
-    'Reduce emissions, improve patient care, and save money — all from one integrated platform.',
+    '1,413 audit-ready healthcare emission factors from 11 EPA datasets. Built by the team behind 100+ hospital deployments in EU and Canada. CliniCarbon is live — full platform coming.',
   metadataBase: new URL('https://lighthousehlth.com'),
   openGraph: {
     type: 'website',
