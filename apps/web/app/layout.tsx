@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Source_Serif_4 } from 'next/font/google';
+import { Inter, Newsreader } from 'next/font/google';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
 import { getOrganizationJsonLd } from '@/lib/metadata';
@@ -11,7 +11,7 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const sourceSerif = Source_Serif_4({
+const newsreader = Newsreader({
   subsets: ['latin'],
   weight: ['600', '700'],
   variable: '--font-serif',
@@ -40,7 +40,7 @@ export default function RootLayout({
   const jsonLd = getOrganizationJsonLd();
 
   return (
-    <html lang="en" className={`${inter.variable} ${sourceSerif.variable}`}>
+    <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
       <head>
         <script
           type="application/ld+json"
