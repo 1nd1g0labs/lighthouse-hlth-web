@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Fraunces } from 'next/font/google';
+import { Inter, Source_Serif_4 } from 'next/font/google';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
 import { getOrganizationJsonLd } from '@/lib/metadata';
@@ -11,10 +11,10 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const fraunces = Fraunces({
+const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
   weight: ['600', '700'],
-  variable: '--font-fraunces',
+  variable: '--font-serif',
 });
 
 export const metadata: Metadata = {
@@ -40,7 +40,7 @@ export default function RootLayout({
   const jsonLd = getOrganizationJsonLd();
 
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`${inter.variable} ${sourceSerif.variable}`}>
       <head>
         <script
           type="application/ld+json"
