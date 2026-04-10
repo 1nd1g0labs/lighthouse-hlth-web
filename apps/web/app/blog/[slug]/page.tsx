@@ -23,7 +23,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     <Section className="bg-white">
       <article className="mx-auto max-w-2xl">
         <p className="text-xs text-neutral-400">{post.date} &middot; {post.readTime}</p>
-        <h1 className="mt-2 text-h3 font-bold text-neutral-900">{post.title}</h1>
+        <h1 className="mt-2 font-display text-h3 font-bold text-neutral-900">{post.title}</h1>
         <p className="mt-4 text-body text-text-muted">{post.excerpt}</p>
 
         <div className="mt-8">
