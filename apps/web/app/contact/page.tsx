@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ContactForm } from '@/components/contact-form';
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: 'Talk to Us',
   description: 'Schedule a 30-minute discovery call to map your sustainability starting point.',
 };
 
@@ -29,7 +29,7 @@ export default function ContactPage() {
       <TopoBackground />
       <div className="absolute left-[60%] top-[55%] h-2 w-2 rounded-full bg-sustainability shadow-[0_0_12px_rgba(22,163,74,0.4)]" />
       <div className="relative z-10 w-full max-w-lg rounded-xl bg-white/95 p-8 shadow-2xl backdrop-blur">
-        <h1 className="text-center text-h4 font-bold text-neutral-900">Let&apos;s Talk</h1>
+        <h1 className="text-center font-display text-h4 font-bold text-neutral-900">Let&apos;s Talk</h1>
         <p className="mt-2 text-center text-sm text-text-muted">30-minute discovery call to map your sustainability starting point.</p>
         <div className="mt-6">
           <ContactForm />
